@@ -13,7 +13,10 @@ namespace phanmemtinhtoan
     
     public partial class MayTinh : Form
     {
-        int a, b;
+        string kq;
+        double a;
+        double b;
+        
         public MayTinh()
         {
             InitializeComponent();
@@ -21,39 +24,87 @@ namespace phanmemtinhtoan
 
         private void reset_btn(object sender, EventArgs e)
         {
-            tb_a.ResetText();
-            tb_b.ResetText();
-            tb_kq.ResetText();
+            textBox1.ResetText();
+           
         }
 
         private void total_btn(object sender, EventArgs e)
         {
-            a = Convert.ToInt32(tb_a.Text);
-            b = Convert.ToInt32(tb_b.Text);
-            tb_kq.Text = Convert.ToString(a + b);
-
+            kq = "+";
+            a = double.Parse(textBox1.Text);
+            textBox1.Text = "";
         }
 
         private void tru_btn(object sender, EventArgs e)
         {
-            a = Convert.ToInt32(tb_a.Text);
-            b = Convert.ToInt32(tb_b.Text);
-            tb_kq.Text = Convert.ToString(a - b);
 
+            kq = "-";
+            a = double.Parse(textBox1.Text);
+            textBox1.Text = "";
         }
 
         private void nhan_btn(object sender, EventArgs e)
         {
-            a = Convert.ToInt32(tb_a.Text);
-            b = Convert.ToInt32(tb_b.Text);
-            tb_kq.Text = Convert.ToString(a * b);
+            kq = "*";
+            a = double.Parse(textBox1.Text);
+            textBox1.Text = "";
         }
 
         private void chia_btn(object sender, EventArgs e)
         {
-            a = Convert.ToInt32(tb_a.Text);
-            b = Convert.ToInt32(tb_b.Text);
-            tb_kq.Text = Convert.ToString(a / b);
+            kq = "/";
+            a = double.Parse(textBox1.Text);
+            textBox1.Text = "";
+        }
+
+        private void btn_1(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button7.Text;
+        }
+
+        private void btn_2(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button9.Text;
+        }
+
+        private void btn_3(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button8.Text;
+        }
+
+        private void btn_4(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button10.Text;
+        }
+
+        private void btn_5(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button12.Text;
+        }
+
+        private void btn_6(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button11.Text;
+        }
+
+        private void btn_7(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button13.Text;
+        }
+
+        private void btn_8(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button15.Text;
+        }
+
+        private void btn_9(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button14.Text;
+        }
+
+        private void btn_0(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + button16.Text;
         }
 
         private void Thoat_btn(object sender, EventArgs e)
@@ -62,6 +113,32 @@ namespace phanmemtinhtoan
             help = (MessageBox.Show("Bạn có muốn thoát hay không ?" ,"Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
             if (help == DialogResult.Yes)
                 Application.Exit();
+        }
+
+        private void bang_btn(object sender, EventArgs e)
+        {
+            b = double.Parse(textBox1.Text);
+            double result;
+            if (kq == "+")
+            {
+                result = a + b;
+                textBox1.Text = result.ToString();
+            }
+            else if (kq == "-")
+            {
+                result = a - b;
+                textBox1.Text = result.ToString();
+            }
+            else if (kq == "*")
+            {
+                result = a * b;
+                textBox1.Text = result.ToString();
+            }
+            else
+            {
+                result = a / b;
+                textBox1.Text = result.ToString();
+            }
         }
     }
 }
